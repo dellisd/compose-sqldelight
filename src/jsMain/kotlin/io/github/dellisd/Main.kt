@@ -2,8 +2,6 @@ package io.github.dellisd
 
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.fontSize
 import org.jetbrains.compose.web.css.padding
 import org.jetbrains.compose.web.css.px
@@ -12,12 +10,10 @@ import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.renderComposable
 
 fun main() {
-    val scope = MainScope()
     val dataRepository = DataRepository()
-    scope.launch { dataRepository.loadData() }
 
     renderComposable(rootElementId = "root") {
-        val notes by dataRepository.data.collectAsState()
+        val notes by dataRepository.data.collectAsState(emptyList())
 
         Div({ style { padding(25.px) } }) {
             if (notes.isEmpty()) {
