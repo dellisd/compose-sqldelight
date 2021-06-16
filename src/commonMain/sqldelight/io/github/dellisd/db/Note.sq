@@ -1,0 +1,14 @@
+CREATE TABLE note (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  content TEXT NOT NULL
+);
+
+INSERT INTO note (id, title, content) VALUES (1, 'A Movie', 'This is some text for "A" Movie');
+INSERT INTO note (id, title, content) VALUES (2, 'B Movie', 'According to all known laws of aviation, there is no way a bee should be able to fly.');
+
+getAll:
+SELECT * FROM note;
+
+getById:
+SELECT * FROM note WHERE id = :id;
