@@ -1,11 +1,12 @@
 // project/webpack.conf.d/fs.js
 config.resolve.fallback = {
     fs: false,
-    path: false
+    path: false,
+    crypto: false,
 };
 
 // project/webpack.conf.d/wasm.js
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 config.plugins.push(
     new CopyWebpackPlugin({
         patterns: [
